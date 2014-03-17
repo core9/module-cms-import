@@ -1,0 +1,27 @@
+<div>
+	<h2>Importer - {{importer.name}}</h2>
+	<form>
+		<table>
+			<tr>
+				<th><label>Name</label></th>
+				<td><input type="text" ng-model="importer.name" /></td>
+			</tr>
+			<tr>
+				<th><label>Processor</label></th>
+				<td>
+					<select ng-options="processor.processorIdentifier as processor.processorName for processor in processors" ng-model="importer.processor">
+						<option value=""></option>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<div ng-if="processor.template !== null" ng-include="processor.template" />
+		<div ng-if="processor.template === null"cn-schema-generator cn-schema="processor.processorConfig" cn-data="importer.processorOptions" cn-options="processor.processorOptions" />
+	</form>
+	<button class="btn btn-success" ng-click="save()">Save</button>
+	<button class="btn btn-success" ng-click="back()">Back</button>
+	<div>
+		<pre>{{importer|json}}</pre>
+		<pre>{{processor|json}}</pre>
+	</div>
+</div>

@@ -1,0 +1,23 @@
+<div>
+	<h2>Importers</h2> Configure your importers
+	<div>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Actions</th>
+			</tr>
+			<tr ng-repeat="importer in importers">
+				<td>{{importer.name}}</td>
+				<td>
+					<button class="btn btn-success" ng-click="edit(importer)"><i class="fa fa-pencil"></i></button>
+					<button class="btn btn-danger" ng-click="remove(importer)"><i class="fa fa-trash-o"></i></button>
+					<button class="btn btn-success" ng-click="execute(importer)">Execute</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<input type="text" ng-model="newImporter" />
+		<button class="btn btn-success" ng-click="addImporter(newImporter)">Add</button>
+	</div>
+</div>

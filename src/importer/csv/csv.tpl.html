@@ -1,0 +1,41 @@
+<div ng-controller="coreImporterCSVCtrl">
+	<fieldset>
+		<legend>Configuration</legend>
+		<div class="input-group">
+			<span class="input-group-addon ng-binding">Collection</span>
+			<input type="text" class="form-control" ng-model="importer.processorOptions.collection">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon ng-binding">ContentType</span>
+			<input type="text" class="form-control" ng-model="importer.processorOptions.contenttype">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon ng-binding">Separator</span>
+			<input type="text" class="form-control" ng-model="importer.processorOptions.separator">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon ng-binding">Primary Key</span>
+			<input type="text" class="form-control" ng-model="importer.processorOptions.primaryKey">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon ng-binding">URL</span>
+			<input type="text" class="form-control" ng-model="importer.processorOptions.url">
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Fields</legend>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>NotNull</th>
+				<th>ParseInt</th>
+			</tr>
+			<tr ng-repeat="field in importer.processorOptions.fields">
+				<td class="input-group-addon">{{field.name}}</td>
+				<td class="form-control"><input type="checkbox" ng-model="field.notNull" /></td>
+				<td class="form-control"><input type="checkbox" ng-model="field.parseInt" /></td>
+			</tr>	
+		</table>
+		<button class="btn btn-success" ng-click="retrieveHead()">Retrieve header</button>
+	</fieldset>
+</div>
