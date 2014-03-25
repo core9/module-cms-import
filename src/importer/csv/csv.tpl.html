@@ -1,39 +1,49 @@
 <div ng-controller="coreImporterCSVCtrl">
 	<fieldset>
 		<legend>Configuration</legend>
-		<div class="input-group">
-			<span class="input-group-addon ng-binding">Collection</span>
-			<input type="text" class="form-control" ng-model="importer.processorOptions.collection">
-		</div>
-		<div class="input-group">
-			<span class="input-group-addon ng-binding">ContentType</span>
-			<input type="text" class="form-control" ng-model="importer.processorOptions.contenttype">
-		</div>
-		<div class="input-group">
-			<span class="input-group-addon ng-binding">Separator</span>
-			<input type="text" class="form-control" ng-model="importer.processorOptions.separator">
-		</div>
-		<div class="input-group">
-			<span class="input-group-addon ng-binding">Primary Key</span>
-			<input type="text" class="form-control" ng-model="importer.processorOptions.primaryKey">
-		</div>
-		<div class="input-group">
-			<span class="input-group-addon ng-binding">URL</span>
-			<input type="text" class="form-control" ng-model="importer.processorOptions.url">
-		</div>
+    <div class="form-group row">
+      <label class="col-md-2 control-label">Collection</label>
+      <div class="col-md-8">
+        <input ng-model="importer.processorOptions.collection" type="text" class="form-control input-md" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 control-label">ContentType</label>  
+      <div class="col-md-8">
+        <input ng-model="importer.processorOptions.contenttype" type="text" class="form-control input-md" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 control-label">Separator</label>  
+      <div class="col-md-8">
+        <input ng-model="importer.processorOptions.separator" type="text" class="form-control input-md" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 control-label">Primary Key</label>  
+      <div class="col-md-8">
+        <input ng-model="importer.processorOptions.primaryKey" type="text" class="form-control input-md" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 control-label">URL</label>  
+      <div class="col-md-8">
+        <input ng-model="importer.processorOptions.url" type="text" class="form-control input-md" />
+      </div>
+    </div>
 	</fieldset>
 	<fieldset>
 		<legend>Fields</legend>
-		<table>
+		<table class="table table-striped">
 			<tr>
 				<th>Name</th>
 				<th>NotNull</th>
 				<th>ParseInt</th>
 			</tr>
 			<tr ng-repeat="field in importer.processorOptions.fields">
-				<td class="input-group-addon">{{field.name}}</td>
-				<td class="form-control"><input type="checkbox" ng-model="field.notNull" /></td>
-				<td class="form-control"><input type="checkbox" ng-model="field.parseInt" /></td>
+				<td>{{field.name}}</td>
+				<td><input type="checkbox" ng-model="field.notNull" /></td>
+				<td><input type="checkbox" ng-model="field.parseInt" /></td>
 			</tr>	
 		</table>
 		<button class="btn btn-success" ng-click="retrieveHead()">Retrieve header</button>

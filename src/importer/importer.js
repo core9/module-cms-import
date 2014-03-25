@@ -14,7 +14,10 @@ angular.module( 'core9.importer', [
 				templateUrl: 'importer/importer.list.tpl.html'
 			}
 		},
-		data:{ pageTitle: 'Importers' }
+		data:{ 
+      pageTitle: 'Importers',
+      sidebar: 'config'
+    }
 	})
 	.state('importer', {
 		url: '/config/importers/:importer',
@@ -29,7 +32,10 @@ angular.module( 'core9.importer', [
 				return Processors.getProcessors();
 			}]
 		},
-		data:{ pageTitle: 'Importer' }
+		data:{ 
+      pageTitle: 'Importer',
+      sidebar: 'config'
+    }
 	});
 })
 
@@ -121,6 +127,6 @@ angular.module( 'core9.importer', [
 })
 
 .run(function(MenuService) {
-	MenuService.add('config', {title: "Importers", weight: 400, link: "/config/importers"});
+	MenuService.add('config', {title: "Importers", weight: 400, link: "importers"});
 })
 ;
